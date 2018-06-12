@@ -1,3 +1,0 @@
-# Referenced at E:\Android\AndroidData\1818_ask100\mylearn\an\os\02_app_hal\0001th_app_led_demo\app_0001_led_demo\0001th_app_led_demo\app_0001_led_demo\app\build\intermediates\manifests\full\debug\AndroidManifest.xml:11
--keep class android.support.multidex.MultiDexApplication { <init>(...); }
-
