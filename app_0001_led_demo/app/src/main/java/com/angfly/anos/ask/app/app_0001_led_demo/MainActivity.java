@@ -107,8 +107,6 @@ public class MainActivity extends Activity {
     public void onCheckboxClicked(View view) {
         // Is the view now checked?
         boolean checked = ((CheckBox) view).isChecked();
-
-
             // Check which checkbox was clicked
             switch(view.getId()) {
                 case R.id.ck_led_1_liner_layout:
