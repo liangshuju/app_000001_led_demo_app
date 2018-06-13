@@ -4,15 +4,19 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.RemoteException;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.Toast;
-import com.angfly.anos.ask.app.hard_library.HardControl;
-//import android.os.ILedAngflyService;
-//import android.os.ServiceManager;
+//import com.angfly.anos.ask.app.hard_library.HardControl;
+import android.os.ILedAngflyService;
+import android.os.IVibratorService;
+import android.os.ServiceManager;
 
 public class MainActivity extends Activity {
+
+    private static final String TAG = "MainActivity_led";
 
     private boolean led_status = false;
 
@@ -28,7 +32,9 @@ public class MainActivity extends Activity {
 
     private Context mContext = null;
 
-    //private ILedAngflyService iLedAngflySerice;
+    private ILedAngflyService iLedAngflySerice;
+
+    private IVibratorService myIVibratorService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,8 +51,30 @@ public class MainActivity extends Activity {
 
         all_led_switch_button.setOnClickListener(new MyButtonOnClickListener());
 
-        HardControl.ledOpen();
-        //iLedAngflySerice = ILedAngflyService.Stub.asInterface(ServiceManager.getService("ledAngfly"));
+        //HardControl.ledOpen();
+                                                                                            // ledAngfly
+        iLedAngflySerice = ILedAngflyService.Stub.asInterface(ServiceManager.getService("ledAngfly"));
+
+        myIVibratorService = IVibratorService.Stub.asInterface(ServiceManager.getService("vibrator"));
+
+        try {
+            boolean isExist = myIVibratorService.hasVibrator();
+            Log.i(TAG, "[angfly_led] aidl vibrator : isExist = " + isExist);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        Log.i(TAG, "[angfly_led] aidl led : iLedAngflySerice = " + iLedAngflySerice);
+
+
+        // test
+        try {
+                           //ledCtrl_aidl
+            iLedAngflySerice.ledCtrl_aidl(1, 1);
+                      // int ledCtrl_aidl(int which, int status);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
 
         /*
         all_led_switch_button.setOnClickListener(new View.OnClickListener() {
@@ -78,8 +106,12 @@ public class MainActivity extends Activity {
 
 
                     for (int i = 0; i < 4; i ++) {
-                        HardControl.ledCtrl(i, 1);
-                        //iLedAngflySerice.ledCtrl_aidl(i, 1);
+                        //HardControl.ledCtrl(i, 1);
+                        try {
+                            iLedAngflySerice.ledCtrl_aidl(i, 1);
+                        } catch (RemoteException e) {
+                            e.printStackTrace();
+                        }
                     }
 
 
@@ -91,8 +123,12 @@ public class MainActivity extends Activity {
                 ck_led_4_switch.setChecked(false);
 
                     for (int i = 0; i < 4; i ++) {
-                        HardControl.ledCtrl(i, 0);
-                        //iLedAngflySerice.ledCtrl_aidl(i, 0);
+                        //HardControl.ledCtrl(i, 0);
+                        try {
+                            iLedAngflySerice.ledCtrl_aidl(i, 0);
+                        } catch (RemoteException e) {
+                            e.printStackTrace();
+                        }
                     }
 
             }
@@ -108,62 +144,68 @@ public class MainActivity extends Activity {
         // Is the view now checked?
         boolean checked = ((CheckBox) view).isChecked();
             // Check which checkbox was clicked
+
+
+        try {
             switch(view.getId()) {
                 case R.id.ck_led_1_liner_layout:
                     if (checked) {
                         // Put some meat on the sandwich
-                        HardControl.ledCtrl(0, 1);
-                        //iLedAngflySerice.ledCtrl_aidl(0, 1);
+                        //HardControl.ledCtrl(0, 1);
+                        iLedAngflySerice.ledCtrl_aidl(0, 1);
                         Toast.makeText(mContext, "Led_1 On", Toast.LENGTH_LONG).show();
                     } else {
                         // Remove the meat
-                        HardControl.ledCtrl(0, 0);
-                        //iLedAngflySerice.ledCtrl_aidl(0, 0);
+                        //HardControl.ledCtrl(0, 0);
+                        iLedAngflySerice.ledCtrl_aidl(0, 0);
                         Toast.makeText(mContext, "Led_1 Off", Toast.LENGTH_LONG).show();
                     }
                     break;
                 case R.id.ck_led_2_liner_layout:
                     if (checked) {
                         // Put some meat on the sandwich
-                        HardControl.ledCtrl(1, 1);
-                        //iLedAngflySerice.ledCtrl_aidl(1, 1);
+                        //HardControl.ledCtrl(1, 1);
+                        iLedAngflySerice.ledCtrl_aidl(1, 1);
                         Toast.makeText(mContext, "Led_2 On", Toast.LENGTH_LONG).show();
                     } else {
                         // Remove the meat
-                        HardControl.ledCtrl(1, 0);
-                        //iLedAngflySerice.ledCtrl_aidl(1, 0);
+                        //HardControl.ledCtrl(1, 0);
+                        iLedAngflySerice.ledCtrl_aidl(1, 0);
                         Toast.makeText(mContext, "Led_2 Off", Toast.LENGTH_LONG).show();
                     }
                     break;
                 case R.id.ck_led_3_liner_layout:
                     if (checked) {
                         // Put some meat on the sandwich
-                        HardControl.ledCtrl(2, 1);
-                        //iLedAngflySerice.ledCtrl_aidl(2, 1);
+                        //HardControl.ledCtrl(2, 1);
+                        iLedAngflySerice.ledCtrl_aidl(2, 1);
                         Toast.makeText(mContext, "Led_3 On", Toast.LENGTH_LONG).show();
                     } else {
                         // Remove the meat
-                        HardControl.ledCtrl(2, 0);
-                        //iLedAngflySerice.ledCtrl_aidl(2, 0);
+                        //HardControl.ledCtrl(2, 0);
+                        iLedAngflySerice.ledCtrl_aidl(2, 0);
                         Toast.makeText(mContext, "Led_3 Off", Toast.LENGTH_LONG).show();
                     }
                     break;
                 case R.id.ck_led_4_liner_layout:
                     if (checked) {
                         // Put some meat on the sandwich
-                        HardControl.ledCtrl(3, 1);
-                        //iLedAngflySerice.ledCtrl_aidl(3, 1);
+                        //HardControl.ledCtrl(3, 1);
+                        iLedAngflySerice.ledCtrl_aidl(3, 1);
                         Toast.makeText(mContext, "Led_4 On", Toast.LENGTH_LONG).show();
                     } else {
                         // Remove the meat
-                        HardControl.ledCtrl(3, 0);
-                        //iLedAngflySerice.ledCtrl_aidl(3, 0);
+                        //HardControl.ledCtrl(3, 0);
+                        iLedAngflySerice.ledCtrl_aidl(3, 0);
                         Toast.makeText(mContext, "Led_4 Off", Toast.LENGTH_LONG).show();
                     }
                     break;
 
                 // TODO: Veggie sandwich
             }
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
 
     }
 }
