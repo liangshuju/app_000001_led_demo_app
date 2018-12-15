@@ -24,3 +24,4 @@ public class AutoRunningBroadcast extends BroadcastReceiver{
         context.startActivity(intentNewTask);
     }
 }
+
