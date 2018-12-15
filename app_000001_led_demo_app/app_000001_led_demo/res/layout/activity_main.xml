@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.angfly.anos.ask.app.app_0001_led_demo.MainActivity"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title" />
+
+    <Button
+        android:id="@+id/all_button"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/led_on_off"/>
+
+    <CheckBox
+        android:id="@+id/ck_led_1_liner_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/led_1"
+        android:onClick="onCheckboxClicked"/>
+
+    <CheckBox
+        android:id="@+id/ck_led_2_liner_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/led_2"
+        android:onClick="onCheckboxClicked"/>
+
+    <CheckBox
+        android:id="@+id/ck_led_3_liner_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/led_3"
+        android:onClick="onCheckboxClicked"/>
+
+    <CheckBox
+        android:id="@+id/ck_led_4_liner_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/led_4"
+        android:onClick="onCheckboxClicked"/>
+
+</LinearLayout>

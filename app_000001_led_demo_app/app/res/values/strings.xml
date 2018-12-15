@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">app_0001_led_demo</string>
+    <string name="title">100ask led demo</string>
+    <string name="led_on_off">Led ALL On</string>
+    <string name="led_1">Led1</string>
+    <string name="led_2">Led2</string>
+    <string name="led_3">Led3</string>
+    <string name="led_4">Led4</string>
+</resources>
