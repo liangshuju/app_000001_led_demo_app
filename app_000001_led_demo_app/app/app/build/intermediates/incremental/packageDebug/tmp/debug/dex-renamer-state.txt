@@ -1,0 +1,7 @@
+#Mon Nov 26 09:02:41 CST 2018
+base.0=E\:\\Android\\AndroidData\\1818_ask100\\mylearn\\an\\os\\code\\02th_app_hal\\0001th_app_led_demo\\app_0001_led_demo\\0001th_app_led_demo\\app_0001_led_demo\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\95
+path.1=classes.dex
+renamed.1=classes2.dex
+path.0=classes.dex
+renamed.0=classes.dex
+base.1=E\:\\Android\\AndroidData\\1818_ask100\\mylearn\\an\\os\\code\\02th_app_hal\\0001th_app_led_demo\\app_0001_led_demo\\0001th_app_led_demo\\app_0001_led_demo\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\87
