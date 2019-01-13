@@ -45,7 +45,7 @@ public class MainActivity extends Activity {
 
         all_led_switch_button.setOnClickListener(new MyButtonOnClickListener());
 
-        HardControl.ledOpen();
+        //HardControl.ledOpen();
         //iLedAngflySerice = ILedAngflyService.Stub.asInterface(ServiceManager.getService("ledAngfly"));
 
         /*
@@ -78,7 +78,7 @@ public class MainActivity extends Activity {
 
 
                     for (int i = 0; i < 4; i ++) {
-                        HardControl.ledCtrl(i, 1);
+                        //HardControl.ledCtrl(i, 1);
                         //iLedAngflySerice.ledCtrl_aidl(i, 1);
                     }
 
@@ -91,7 +91,7 @@ public class MainActivity extends Activity {
                 ck_led_4_switch.setChecked(false);
 
                     for (int i = 0; i < 4; i ++) {
-                        HardControl.ledCtrl(i, 0);
+                        //HardControl.ledCtrl(i, 0);
                         //iLedAngflySerice.ledCtrl_aidl(i, 0);
                     }
 
@@ -114,12 +114,12 @@ public class MainActivity extends Activity {
                 case R.id.ck_led_1_liner_layout:
                     if (checked) {
                         // Put some meat on the sandwich
-                        HardControl.ledCtrl(0, 1);
+                        //HardControl.ledCtrl(0, 1);
                         //iLedAngflySerice.ledCtrl_aidl(0, 1);
                         Toast.makeText(mContext, "Led_1 On", Toast.LENGTH_LONG).show();
                     } else {
                         // Remove the meat
-                        HardControl.ledCtrl(0, 0);
+                        //HardControl.ledCtrl(0, 0);
                         //iLedAngflySerice.ledCtrl_aidl(0, 0);
                         Toast.makeText(mContext, "Led_1 Off", Toast.LENGTH_LONG).show();
                     }
@@ -127,12 +127,12 @@ public class MainActivity extends Activity {
                 case R.id.ck_led_2_liner_layout:
                     if (checked) {
                         // Put some meat on the sandwich
-                        HardControl.ledCtrl(1, 1);
+                        ///HardControl.ledCtrl(1, 1);
                         //iLedAngflySerice.ledCtrl_aidl(1, 1);
                         Toast.makeText(mContext, "Led_2 On", Toast.LENGTH_LONG).show();
                     } else {
                         // Remove the meat
-                        HardControl.ledCtrl(1, 0);
+                        //HardControl.ledCtrl(1, 0);
                         //iLedAngflySerice.ledCtrl_aidl(1, 0);
                         Toast.makeText(mContext, "Led_2 Off", Toast.LENGTH_LONG).show();
                     }
@@ -140,12 +140,12 @@ public class MainActivity extends Activity {
                 case R.id.ck_led_3_liner_layout:
                     if (checked) {
                         // Put some meat on the sandwich
-                        HardControl.ledCtrl(2, 1);
+                        //HardControl.ledCtrl(2, 1);
                         //iLedAngflySerice.ledCtrl_aidl(2, 1);
                         Toast.makeText(mContext, "Led_3 On", Toast.LENGTH_LONG).show();
                     } else {
                         // Remove the meat
-                        HardControl.ledCtrl(2, 0);
+                        //HardControl.ledCtrl(2, 0);
                         //iLedAngflySerice.ledCtrl_aidl(2, 0);
                         Toast.makeText(mContext, "Led_3 Off", Toast.LENGTH_LONG).show();
                     }
@@ -153,12 +153,12 @@ public class MainActivity extends Activity {
                 case R.id.ck_led_4_liner_layout:
                     if (checked) {
                         // Put some meat on the sandwich
-                        HardControl.ledCtrl(3, 1);
+                        //HardControl.ledCtrl(3, 1);
                         //iLedAngflySerice.ledCtrl_aidl(3, 1);
                         Toast.makeText(mContext, "Led_4 On", Toast.LENGTH_LONG).show();
                     } else {
                         // Remove the meat
-                        HardControl.ledCtrl(3, 0);
+                        //HardControl.ledCtrl(3, 0);
                         //iLedAngflySerice.ledCtrl_aidl(3, 0);
                         Toast.makeText(mContext, "Led_4 Off", Toast.LENGTH_LONG).show();
                     }
