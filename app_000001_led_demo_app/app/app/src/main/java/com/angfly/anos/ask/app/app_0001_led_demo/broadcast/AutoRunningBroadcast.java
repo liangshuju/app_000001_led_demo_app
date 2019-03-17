@@ -3,7 +3,6 @@ package com.angfly.anos.ask.app.app_0001_led_demo.broadcast;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.os.IBinder;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -15,7 +14,11 @@ public class AutoRunningBroadcast extends BroadcastReceiver{
 
     @Override
     public void onReceive(Context context, Intent intent) {
+
+        // public static final String ACTION_GLOBAL_BUTTON = "android.intent.action.GLOBAL_BUTTON";
+
         Log.i(TAG, "intent = " + intent);
+
 
         Toast.makeText(context, "Get AutoRunningBroadcast open app", Toast.LENGTH_LONG).show();
 

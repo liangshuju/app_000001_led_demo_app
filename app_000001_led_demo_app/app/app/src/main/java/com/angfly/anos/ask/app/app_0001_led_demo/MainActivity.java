@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.Toast;
-import com.angfly.anos.ask.app.hard_library.HardControl;
+// import com.angfly.anos.ask.app.hard_library.HardControl;
 //import android.os.ILedAngflyService;
 //import android.os.ServiceManager;
 

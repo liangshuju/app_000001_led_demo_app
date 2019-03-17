@@ -21,7 +21,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.GLOBAL_BUTTON"></action>
             </intent-filter>
-        </receiver>>
+        </receiver>
     </application>
 
 </manifest>
